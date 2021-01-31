@@ -46,14 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DataLayer\FileData.cs" />
+    <Compile Include="Deliverables\Forms\RandomNumberForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Deliverables\Forms\RandomNumberForm.Designer.cs">
+      <DependentUpon>RandomNumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deliverables\RandomNumbers.cs" />
+    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="UserClasses\Student.cs" />
+    <Compile Include="UserClasses\UserBase.cs" />
+    <Compile Include="GymSoftwareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GymSoftwareForm.Designer.cs">
+      <DependentUpon>GymSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Deliverables\Forms\RandomNumberForm.resx">
+      <DependentUpon>RandomNumberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GymSoftwareForm.resx">
+      <DependentUpon>GymSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessLayer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
