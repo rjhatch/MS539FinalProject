@@ -22,20 +22,30 @@ namespace MS539FinalProject.Deliverables.Forms
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            int.TryParse(tbRandomNumberCount.Text, out count);
 
-            if (count > 1000)
+            //Attempt to convert the entered value to an int. If not, display an error.
+            if(!int.TryParse(tbRandomNumberCount.Text, out count))
             {
-                tbRandomNumberCount.Text = "1000";
-                count = 1000;
+                MessageBox.Show("Please enter a number!");
             }
 
+
+            //If the user enters a number greater than 1000, display error.
+            if (count > 1000)
+            {
+                MessageBox.Show("Please enter a number less than or equal to 1000!");
+                return;
+            }
+
+            //Create new RandomNumbers class with the count.
             RandomNumbers randomNumbers = new RandomNumbers(count);
 
             rtbNumbers.Text = randomNumbers.NumberList;
 
+            //If the user has checked the box to save the data to a file, save it to a file.
             if (cbSaveRandomNumbers.Checked)
             {
+                //Try to write to the file. If not, display an error.
                 try
                 {
                     File.WriteAllText("Numbers.txt", randomNumbers.NumberList);

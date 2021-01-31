@@ -40,7 +40,7 @@ namespace MS539FinalProject.Deliverables.Forms
             // lblRandomNumberCount
             // 
             this.lblRandomNumberCount.AutoSize = true;
-            this.lblRandomNumberCount.Location = new System.Drawing.Point(62, 49);
+            this.lblRandomNumberCount.Location = new System.Drawing.Point(165, 60);
             this.lblRandomNumberCount.Name = "lblRandomNumberCount";
             this.lblRandomNumberCount.Size = new System.Drawing.Size(35, 13);
             this.lblRandomNumberCount.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace MS539FinalProject.Deliverables.Forms
             // 
             // tbRandomNumberCount
             // 
-            this.tbRandomNumberCount.Location = new System.Drawing.Point(104, 49);
+            this.tbRandomNumberCount.Location = new System.Drawing.Point(207, 60);
             this.tbRandomNumberCount.Name = "tbRandomNumberCount";
             this.tbRandomNumberCount.Size = new System.Drawing.Size(100, 20);
             this.tbRandomNumberCount.TabIndex = 1;
@@ -56,7 +56,7 @@ namespace MS539FinalProject.Deliverables.Forms
             // cbSaveRandomNumbers
             // 
             this.cbSaveRandomNumbers.AutoSize = true;
-            this.cbSaveRandomNumbers.Location = new System.Drawing.Point(104, 75);
+            this.cbSaveRandomNumbers.Location = new System.Drawing.Point(207, 86);
             this.cbSaveRandomNumbers.Name = "cbSaveRandomNumbers";
             this.cbSaveRandomNumbers.Size = new System.Drawing.Size(79, 17);
             this.cbSaveRandomNumbers.TabIndex = 2;
@@ -65,7 +65,7 @@ namespace MS539FinalProject.Deliverables.Forms
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(104, 98);
+            this.btnGenerate.Location = new System.Drawing.Point(207, 109);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 3;
@@ -75,7 +75,7 @@ namespace MS539FinalProject.Deliverables.Forms
             // 
             // tbInstructions
             // 
-            this.tbInstructions.Location = new System.Drawing.Point(12, 3);
+            this.tbInstructions.Location = new System.Drawing.Point(108, 12);
             this.tbInstructions.Multiline = true;
             this.tbInstructions.Name = "tbInstructions";
             this.tbInstructions.ReadOnly = true;
@@ -94,6 +94,7 @@ namespace MS539FinalProject.Deliverables.Forms
             // 
             // RandomNumberForm
             // 
+            this.AcceptButton = this.btnGenerate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 411);

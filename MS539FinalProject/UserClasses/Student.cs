@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MS539FinalProject
 {
+    /// <summary>
+    /// This student class extends UserBase.
+    /// </summary>
     class Student : UserBase
     {
         public Bill[] Bills { get; set; }

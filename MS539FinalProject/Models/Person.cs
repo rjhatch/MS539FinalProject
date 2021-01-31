@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MS539FinalProject.Models
 {
+    /// <summary>
+    /// This is the person model.
+    /// </summary>
     class Person
     {
         public string FirstName { get; set; }

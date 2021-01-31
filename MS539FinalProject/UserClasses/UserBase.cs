@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MS539FinalProject
 {
+    /// <summary>
+    /// UserBase provides the base class for all users.
+    /// </summary>
     class UserBase
     {
         public string Username { get; set; }
