@@ -12,6 +12,11 @@ namespace MS539FinalProject
     /// </summary>
     class Student : UserBase
     {
+        public Student(Person person) : base(person)
+        {
+
+        }
+
         public Bill[] Bills { get; set; }
     }
 }

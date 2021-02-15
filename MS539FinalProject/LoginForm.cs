@@ -12,25 +12,37 @@ namespace MS539FinalProject
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        private GymSoftwareForm gymSoftwareForm;
+        public LoginForm(GymSoftwareForm parentForm)
         {
             InitializeComponent();
+            gymSoftwareForm = parentForm;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (tbUsername.Text == "richie" && tbPassword.Text == "richie")
+            //Find out if there person's username and password match.
+            if (gymSoftwareForm.programManager.LogIn(tbUsername.Text, tbPassword.Text))
             {
-                MessageBox.Show("Done");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Nope");
+                MessageBox.Show("Login failed!");
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gymSoftwareForm.UpdateGUI();
         }
     }
 }

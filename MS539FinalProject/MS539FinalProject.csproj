@@ -46,7 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillsForm.Designer.cs">
+      <DependentUpon>BillsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\ProgramManager.cs" />
+    <Compile Include="ClassesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassesForm.Designer.cs">
+      <DependentUpon>ClassesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\DatabaseData.cs" />
+    <Compile Include="DataLayer\DataAccessor.cs" />
     <Compile Include="DataLayer\FileData.cs" />
+    <Compile Include="DataLayer\iData.cs" />
     <Compile Include="Deliverables\Forms\RandomNumberForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +72,7 @@
     <Compile Include="Deliverables\RandomNumbers.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\ProgramClass.cs" />
     <Compile Include="UserClasses\Student.cs" />
     <Compile Include="UserClasses\UserBase.cs" />
     <Compile Include="GymSoftwareForm.cs">
@@ -72,6 +89,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BillsForm.resx">
+      <DependentUpon>BillsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassesForm.resx">
+      <DependentUpon>ClassesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Deliverables\Forms\RandomNumberForm.resx">
       <DependentUpon>RandomNumberForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +113,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\MS539FinalProject.Models.Bill.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -103,8 +127,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

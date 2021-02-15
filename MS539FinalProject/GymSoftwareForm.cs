@@ -12,32 +12,41 @@
  * Estimate for the completed project: 15 hours.
  * Estimate to add DB support: 6 hours.
  * 
- * Estimate for deliverables due on 1/31/2021 - 2 hours
+ * Estimate for deliverables due on 1/31/2021 - 2 hours / 1 actual
  * 
  * 1/25/2021 - .5 hours
  * 1/27/2021 - .25 hours
  * 1/28/2021 - .25 hours
+ * 
+ * Estimate for deliverables due on 2/7/2021 - 2 hours / 3 actual
+ * 2/1/2021 - .5 hours
+ * 2/2/2021 - 2 hours
+ * 2/3/2021 - .5 hours
+ * 
+ * Estimate for delivarables due on 2/14/2021 - 5 hours / 4.5 actual
+ * 2/11/2021 - 3 hours
+ * 2/13/2021 - .5 hours
+ * 2/14/2021 - 1 hour
+ * 
+ * The reason I was under by a half-hour this week is because I did not have to google as much. 
+ * I was able to understand the direction I was going and make the program get there. Trying to estimate 
+ * project times in hours is hard for me. I like to look at how many days something will take me rather than 
+ * the number of hours because I must look up a ton of information. I do appreciate thinking about it though 
+ * and it makes sense why that is the requirement.
  */
 
-
-
-
+using MS539FinalProject.BusinessLayer;
 using MS539FinalProject.Deliverables;
 using MS539FinalProject.Deliverables.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MS539FinalProject
 {
     public partial class GymSoftwareForm : Form
     {
+        public ProgramManager programManager;
+
         public GymSoftwareForm()
         {
             InitializeComponent();
@@ -45,25 +54,16 @@ namespace MS539FinalProject
 
         private void GymSoftwareForm_Load(object sender, EventArgs e)
         {
-
+            programManager = new ProgramManager();
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form login = new LoginForm();
+            Form loginForm = new LoginForm(this);
 
-            login.MdiParent = this;
+            loginForm.MdiParent = this;
 
-            login.Show();
-
-            if (login.DialogResult == DialogResult.OK)
-            {
-                Console.WriteLine("login result ok");
-            }
-            else
-            {
-                Console.WriteLine("login result cancel");
-            }
+            loginForm.Show();
         }
 
         private void randomNumberLoopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,6 +79,69 @@ namespace MS539FinalProject
             randomNumberForm.MdiParent = this;
 
             randomNumberForm.Show();
+        }
+
+        /// <summary>
+        /// Updates the Gui based on the programManager.LoggedIn variable.
+        /// </summary>
+        public void UpdateGUI()
+        {
+            if (programManager.LoggedIn)
+            {
+                //hide the login tool strip menu item
+                this.loginToolStripMenuItem.Enabled = false;
+                this.loginToolStripMenuItem.Visible = false;
+
+                //show the logout tool strip menu item
+                this.logoutToolStripMenuItem.Enabled = true;
+                this.logoutToolStripMenuItem.Visible = true;
+
+                //show the bills menu item
+                this.billsToolStripMenuItem.Enabled = true;
+                this.billsToolStripMenuItem.Visible = true;
+
+                //show the welcome message on the right side
+                lblWelcomeText.Text = $"Hello, {programManager.person.FirstName}!";
+                lblWelcomeText.Visible = true;
+            }
+            else
+            {
+                //show the login tool strip menu item
+                this.loginToolStripMenuItem.Enabled = true;
+                this.loginToolStripMenuItem.Visible = true;
+
+                //hide the logout tool strip menu item
+                this.logoutToolStripMenuItem.Enabled = false;
+                this.logoutToolStripMenuItem.Visible = false;
+
+                //hide the bills menu item
+                this.billsToolStripMenuItem.Enabled = false;
+                this.billsToolStripMenuItem.Visible = false;
+
+                //hide the welcome message on the right side
+                lblWelcomeText.Visible = false;
+            }
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            programManager.Logout();
+
+            foreach (Form form in this.MdiChildren)
+            {
+                    form.Close();
+            }
+
+            UpdateGUI();
+        }
+
+        private void billsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form billsForm = new BillsForm(programManager.GetBillsByPerson(programManager.person.PersonId));
+
+            billsForm.MdiParent = this;
+
+            billsForm.Show();
         }
     }
 }

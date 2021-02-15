@@ -12,8 +12,15 @@ namespace MS539FinalProject
     /// </summary>
     class UserBase
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public Person MyProperty { get; set; }
+        public string Username { get; private set; }
+        public string Password { get; private set; }
+        public Person Person { get; private set; } = new Person();
+
+        public UserBase(Person person)
+        {
+            Person = person;
+            Username = Person.Username;
+            Password = Person.Password;
+        }
     }
 }
