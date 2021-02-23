@@ -45,6 +45,8 @@ namespace MS539FinalProject
 {
     public partial class GymSoftwareForm : Form
     {
+        private Form billsForm, loginForm;
+
         public ProgramManager programManager;
 
         public GymSoftwareForm()
@@ -59,7 +61,12 @@ namespace MS539FinalProject
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form loginForm = new LoginForm(this);
+            if (loginForm != null)
+            {
+                loginForm.Close();
+            }
+
+            loginForm = new LoginForm(this);
 
             loginForm.MdiParent = this;
 
@@ -137,7 +144,12 @@ namespace MS539FinalProject
 
         private void billsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form billsForm = new BillsForm(programManager.GetBillsByPerson(programManager.person.PersonId));
+            if (billsForm != null)
+            {
+                billsForm.Close();
+            }
+
+            billsForm = new BillsForm(programManager.GetBillsByPerson(programManager.person.PersonId));
 
             billsForm.MdiParent = this;
 
