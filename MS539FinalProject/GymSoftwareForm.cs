@@ -28,11 +28,11 @@
  * 2/13/2021 - .5 hours
  * 2/14/2021 - 1 hour
  * 
- * The reason I was under by a half-hour this week is because I did not have to google as much. 
- * I was able to understand the direction I was going and make the program get there. Trying to estimate 
- * project times in hours is hard for me. I like to look at how many days something will take me rather than 
- * the number of hours because I must look up a ton of information. I do appreciate thinking about it though 
- * and it makes sense why that is the requirement.
+ * Estimate for deliverables due on 2/21/2021 - 2 hours / 2 actual
+ * 2/23/2021 - 2 hours
+ * 
+ * I was able to accurately estimate how much time it would take to add 
+ * UI things and update other parts of the program.
  */
 
 using MS539FinalProject.BusinessLayer;
@@ -45,7 +45,7 @@ namespace MS539FinalProject
 {
     public partial class GymSoftwareForm : Form
     {
-        private Form billsForm, loginForm;
+        private Form billsForm, loginForm, classesForm;
 
         public ProgramManager programManager;
 
@@ -107,6 +107,10 @@ namespace MS539FinalProject
                 this.billsToolStripMenuItem.Enabled = true;
                 this.billsToolStripMenuItem.Visible = true;
 
+                //show the classes menu item
+                this.classesToolStripMenuItem.Enabled = true;
+                this.classesToolStripMenuItem.Visible = true;
+
                 //show the welcome message on the right side
                 lblWelcomeText.Text = $"Hello, {programManager.person.FirstName}!";
                 lblWelcomeText.Visible = true;
@@ -125,11 +129,20 @@ namespace MS539FinalProject
                 this.billsToolStripMenuItem.Enabled = false;
                 this.billsToolStripMenuItem.Visible = false;
 
+                //hide the classes menu item
+                this.classesToolStripMenuItem.Enabled = false;
+                this.classesToolStripMenuItem.Visible = false;
+
                 //hide the welcome message on the right side
                 lblWelcomeText.Visible = false;
             }
         }
 
+        /// <summary>
+        /// Logout the current user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             programManager.Logout();
@@ -142,6 +155,11 @@ namespace MS539FinalProject
             UpdateGUI();
         }
 
+        /// <summary>
+        /// Handle the click event on bills toolstrip menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void billsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (billsForm != null)
@@ -154,6 +172,25 @@ namespace MS539FinalProject
             billsForm.MdiParent = this;
 
             billsForm.Show();
+        }
+
+        /// <summary>
+        /// Handle the click event on classes toolstrip menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void classesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (classesForm != null)
+            {
+                classesForm.Close();
+            }
+
+            classesForm = new ClassesForm();
+
+            classesForm.MdiParent = this;
+
+            classesForm.Show();
         }
     }
 }

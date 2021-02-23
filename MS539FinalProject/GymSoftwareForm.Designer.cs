@@ -37,6 +37,7 @@ namespace MS539FinalProject
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblWelcomeText = new System.Windows.Forms.Label();
+            this.classesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@ namespace MS539FinalProject
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.classesToolStripMenuItem,
             this.billsToolStripMenuItem,
             this.loginToolStripMenuItem,
             this.logoutToolStripMenuItem});
@@ -109,6 +111,15 @@ namespace MS539FinalProject
             this.lblWelcomeText.Text = "Welcome Text!";
             this.lblWelcomeText.Visible = false;
             // 
+            // classesToolStripMenuItem
+            // 
+            this.classesToolStripMenuItem.Enabled = false;
+            this.classesToolStripMenuItem.Name = "classesToolStripMenuItem";
+            this.classesToolStripMenuItem.Size = new System.Drawing.Size(57, 22);
+            this.classesToolStripMenuItem.Text = "Classes";
+            this.classesToolStripMenuItem.Visible = false;
+            this.classesToolStripMenuItem.Click += new System.EventHandler(this.classesToolStripMenuItem_Click);
+            // 
             // GymSoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +150,7 @@ namespace MS539FinalProject
         private System.Windows.Forms.Label lblWelcomeText;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem classesToolStripMenuItem;
     }
 }
 
