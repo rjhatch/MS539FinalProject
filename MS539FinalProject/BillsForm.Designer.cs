@@ -31,11 +31,11 @@ namespace MS539FinalProject
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbAllBills = new System.Windows.Forms.RadioButton();
             this.rbNotPaidBills = new System.Windows.Forms.RadioButton();
             this.rbPaidBills = new System.Windows.Forms.RadioButton();
             this.lblBillsTitle = new System.Windows.Forms.Label();
             this.dataGridViewBills = new System.Windows.Forms.DataGridView();
-            this.rbAllBills = new System.Windows.Forms.RadioButton();
             this.billIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +58,19 @@ namespace MS539FinalProject
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(304, 84);
             this.panel1.TabIndex = 5;
+            // 
+            // rbAllBills
+            // 
+            this.rbAllBills.AutoSize = true;
+            this.rbAllBills.Checked = true;
+            this.rbAllBills.Location = new System.Drawing.Point(118, 58);
+            this.rbAllBills.Name = "rbAllBills";
+            this.rbAllBills.Size = new System.Drawing.Size(36, 17);
+            this.rbAllBills.TabIndex = 2;
+            this.rbAllBills.TabStop = true;
+            this.rbAllBills.Text = "All";
+            this.rbAllBills.UseVisualStyleBackColor = true;
+            this.rbAllBills.CheckedChanged += new System.EventHandler(this.rbAllBills_CheckedChanged);
             // 
             // rbNotPaidBills
             // 
@@ -114,19 +127,6 @@ namespace MS539FinalProject
             this.dataGridViewBills.Size = new System.Drawing.Size(605, 246);
             this.dataGridViewBills.TabIndex = 3;
             // 
-            // rbAllBills
-            // 
-            this.rbAllBills.AutoSize = true;
-            this.rbAllBills.Checked = true;
-            this.rbAllBills.Location = new System.Drawing.Point(118, 58);
-            this.rbAllBills.Name = "rbAllBills";
-            this.rbAllBills.Size = new System.Drawing.Size(36, 17);
-            this.rbAllBills.TabIndex = 2;
-            this.rbAllBills.TabStop = true;
-            this.rbAllBills.Text = "All";
-            this.rbAllBills.UseVisualStyleBackColor = true;
-            this.rbAllBills.CheckedChanged += new System.EventHandler(this.rbAllBills_CheckedChanged);
-            // 
             // billIdDataGridViewTextBoxColumn
             // 
             this.billIdDataGridViewTextBoxColumn.DataPropertyName = "BillId";
@@ -181,6 +181,8 @@ namespace MS539FinalProject
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblBillsTitle);
             this.Controls.Add(this.dataGridViewBills);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BillsForm";
             this.Text = "BillsForm";
             this.Load += new System.EventHandler(this.BillsForm_Load);

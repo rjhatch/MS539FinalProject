@@ -35,8 +35,8 @@ namespace MS539FinalProject
             this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblClassesTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbMyClasses = new System.Windows.Forms.RadioButton();
             this.rbAllClasses = new System.Windows.Forms.RadioButton();
+            this.rbMyClasses = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,17 +94,6 @@ namespace MS539FinalProject
             this.panel1.Size = new System.Drawing.Size(304, 55);
             this.panel1.TabIndex = 2;
             // 
-            // rbMyClasses
-            // 
-            this.rbMyClasses.AutoSize = true;
-            this.rbMyClasses.Location = new System.Drawing.Point(118, 12);
-            this.rbMyClasses.Name = "rbMyClasses";
-            this.rbMyClasses.Size = new System.Drawing.Size(78, 17);
-            this.rbMyClasses.TabIndex = 0;
-            this.rbMyClasses.TabStop = true;
-            this.rbMyClasses.Text = "My Classes";
-            this.rbMyClasses.UseVisualStyleBackColor = true;
-            // 
             // rbAllClasses
             // 
             this.rbAllClasses.AutoSize = true;
@@ -116,6 +105,17 @@ namespace MS539FinalProject
             this.rbAllClasses.Text = "All Classes";
             this.rbAllClasses.UseVisualStyleBackColor = true;
             // 
+            // rbMyClasses
+            // 
+            this.rbMyClasses.AutoSize = true;
+            this.rbMyClasses.Location = new System.Drawing.Point(118, 12);
+            this.rbMyClasses.Name = "rbMyClasses";
+            this.rbMyClasses.Size = new System.Drawing.Size(78, 17);
+            this.rbMyClasses.TabIndex = 0;
+            this.rbMyClasses.TabStop = true;
+            this.rbMyClasses.Text = "My Classes";
+            this.rbMyClasses.UseVisualStyleBackColor = true;
+            // 
             // ClassesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +124,8 @@ namespace MS539FinalProject
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblClassesTitle);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ClassesForm";
             this.Text = "Classes";
             this.Load += new System.EventHandler(this.ClassesForm_Load);
